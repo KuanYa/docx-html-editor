@@ -17,28 +17,6 @@
 
 package org.plutext.htmleditor;
 
-import java.awt.Color;
-import java.io.ByteArrayOutputStream;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.capaxit.imagegenerator.Margin;
-import org.capaxit.imagegenerator.TextImage;
-import org.capaxit.imagegenerator.imagecallbacks.BackgroundColorCallback;
-import org.capaxit.imagegenerator.imageexporter.ImageType;
-import org.capaxit.imagegenerator.imageexporter.ImageWriter;
-import org.capaxit.imagegenerator.imageexporter.ImageWriterFactory;
-import org.capaxit.imagegenerator.impl.TextImageImpl;
-import org.capaxit.imagegenerator.textalign.GreedyTextWrapper;
 import org.docx4j.TextUtils;
 import org.docx4j.TraversalUtil;
 import org.docx4j.TraversalUtil.CallbackImpl;
@@ -50,6 +28,14 @@ import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
 import org.docx4j.model.images.WordXmlPictureE10;
 import org.docx4j.model.images.WordXmlPictureE20;
+import org.docx4j.org.capaxit.imagegenerator.Margin;
+import org.docx4j.org.capaxit.imagegenerator.TextImage;
+import org.docx4j.org.capaxit.imagegenerator.imagecallbacks.BackgroundColorCallback;
+import org.docx4j.org.capaxit.imagegenerator.imageexporter.ImageType;
+import org.docx4j.org.capaxit.imagegenerator.imageexporter.ImageWriter;
+import org.docx4j.org.capaxit.imagegenerator.imageexporter.ImageWriterFactory;
+import org.docx4j.org.capaxit.imagegenerator.impl.TextImageImpl;
+import org.docx4j.org.capaxit.imagegenerator.textalign.GreedyTextWrapper;
 import org.docx4j.vml.CTImageData;
 import org.docx4j.wml.R;
 import org.w3c.dom.Document;
@@ -57,6 +43,19 @@ import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.traversal.NodeIterator;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 
 /** 
  * Paragraph content (eg sectPr or oMathPara) can be preserved,
